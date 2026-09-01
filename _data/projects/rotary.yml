@@ -1,0 +1,11 @@
+name: Rotary Game Engine
+link: https://tetrago.github.io/rotary
+text: >-
+  A short foray into cross-platform game engine development and all its
+  platform specific challenges. My focus for this project revolved mainly
+  around documentation and architecture design. Quite the undertaking.
+tags:
+  - C++
+  - HLSL
+  - OpenGL
+  - Vulkan

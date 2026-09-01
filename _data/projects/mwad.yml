@@ -1,0 +1,7 @@
+name: FUSE WAD File Daemon
+text: >-
+  A C FUSE driver that allows mounting WAD files (tar-like archive format used
+  in the original DOOM engine) as directories, supporting real-time viewing and
+  editing.
+tags:
+  - C

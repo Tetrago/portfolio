@@ -1,0 +1,8 @@
+name: Quadtree Implementation and Visualizer
+link: https://tetrago.github.io/Locationator2000
+text: >-
+  A UF datastructures project that involved implementing and visualizing
+  datastructures for large dataset crunching. I implemented the quadtree
+  implementation and frontend of the project.
+tags:
+  - JavaScript

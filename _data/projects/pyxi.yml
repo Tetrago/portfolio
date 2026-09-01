@@ -1,0 +1,7 @@
+name: No Nonsense C++11 Binary Serialization
+text: >-
+  The most fun I have ever had trying to wrangle C++, pyxi is a compile-time
+  semi-reflective serialization engine that can automatically endian-swap
+  values for safe cross-platform binary messaging without any boilerplate.
+tags:
+  - C++

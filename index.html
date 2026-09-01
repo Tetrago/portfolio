@@ -1,0 +1,773 @@
+---
+permalink: /index.html
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Geiss — Software Engineer</title>
+    <style>
+      :root {
+        --bg: #f3f1ec;
+        --panel: #ffffff;
+        --border: #e4e1da;
+        --text-primary: #1c1b19;
+        --text-secondary: #6b6862;
+        --text-tertiary: #9a968d;
+        --accent-green: #0f9d78;
+        --tag-go-bg: #d7f3e8;
+        --tag-go-text: #0f7a5c;
+        --tag-ts-bg: #dbe6fb;
+        --tag-ts-text: #2c5cc5;
+        --tag-shell-bg: #f0eee8;
+        --tag-shell-text: #706b60;
+        --tag-react-bg: #e4f2fb;
+        --tag-react-text: #1d8fce;
+        --tag-python-bg: #fdf1d8;
+        --tag-python-text: #b8860b;
+        --tag-rust-bg: #fbe4de;
+        --tag-rust-text: #c65a3a;
+        --tag-cpp-bg: #e9e4fb;
+        --tag-cpp-text: #5b45c9;
+        --tag-web-bg: #fde8f0;
+        --tag-web-text: #c23b7a;
+
+        /* spacing scale */
+        --space-1: 4px;
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-5: 20px;
+        --space-6: 24px;
+        --space-7: 32px;
+        --space-8: 40px;
+        --space-9: 48px;
+
+        --sidebar-w: 300px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a:focus-visible,
+      .card:focus-visible {
+        outline: 2px solid var(--accent-green);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.001ms !important;
+          animation-duration: 0.001ms !important;
+        }
+      }
+
+      .layout {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* ---------------- Sidebar ---------------- */
+      .sidebar {
+        width: var(--sidebar-w);
+        flex-shrink: 0;
+        background: var(--panel);
+        border-right: 1px solid var(--border);
+        padding: var(--space-8) var(--space-7) var(--space-7);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .avatar {
+        width: 166px;
+        height: 166px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: var(--space-5);
+        background: linear-gradient(135deg, #a9c9c4, #7a9e97);
+        flex-shrink: 0;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .name {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 var(--space-2);
+      }
+
+      .role {
+        font-size: 14.5px;
+        color: var(--text-primary);
+        margin: 0 0 2px;
+      }
+
+      .bio {
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--text-secondary);
+        margin: 0 0 var(--space-7);
+        max-width: 30ch;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        margin-bottom: auto;
+      }
+
+      .link-row {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        font-size: 13.5px;
+        color: var(--text-primary);
+        text-decoration: none;
+        padding: var(--space-1) 0;
+        border-radius: 4px;
+        transition: color 0.15s ease;
+        width: fit-content;
+      }
+
+      .link-row:hover {
+        color: var(--accent-green);
+      }
+      .link-row:hover img {
+        color: var(--accent-green);
+      }
+
+      .link-row img {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        color: var(--text-secondary);
+        transition: color 0.15s ease;
+      }
+
+      /* ---------------- Main ---------------- */
+      .main {
+        flex: 1;
+        min-width: 0;
+        padding: var(--space-9) var(--space-9);
+      }
+
+      .main-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: var(--space-6);
+      }
+
+      .main-header h1 {
+        font-size: 19px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-6);
+      }
+
+      /* ---------------- Cards ---------------- */
+      .card {
+        background: var(--panel);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        text-align: left;
+        padding: 0;
+        font: inherit;
+        color: inherit;
+        width: 100%;
+        -webkit-tap-highlight-color: transparent;
+        transition:
+          transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+          box-shadow 0.22s ease,
+          border-color 0.22s ease;
+        will-change: transform;
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 28px -12px rgba(28, 27, 25, 0.18);
+        border-color: #d5d1c8;
+      }
+
+      .card:active {
+        transform: translateY(-1px);
+        transition-duration: 0.08s;
+      }
+
+      .thumb {
+        aspect-ratio: 16 / 10;
+        position: relative;
+        overflow: hidden;
+        background-color: #0e0f13;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .card:hover .thumb {
+        transform: scale(1.06);
+      }
+
+      .thumb::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(255, 255, 255, 0.08),
+          transparent 60%
+        );
+      }
+
+      .card-body {
+        padding: var(--space-5) var(--space-6) var(--space-6);
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .card-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-2);
+      }
+
+      .card-body h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .open-arrow {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        color: var(--text-secondary);
+        transform: translateX(0) rotate(0deg);
+        transition:
+          transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+          background 0.22s ease,
+          color 0.22s ease;
+      }
+
+      .card:hover .open-arrow,
+      .card:focus-visible .open-arrow {
+        transform: translateX(2px) rotate(45deg);
+        background: var(--accent-green);
+        color: #fff;
+      }
+
+      .open-arrow svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .card-body p {
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: var(--text-secondary);
+        margin: 0 0 var(--space-4);
+        flex: 1;
+      }
+
+      .tags {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 6px;
+        line-height: 1.4;
+      }
+
+      /* ---------------- Modal ---------------- */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 19, 17, 0.44);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 100;
+      }
+
+      .modal-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal {
+        background: var(--panel);
+        border-radius: 16px;
+        max-width: 560px;
+        width: 100%;
+        max-height: 86vh;
+        overflow-y: auto;
+        transform: translateY(16px) scale(0.98);
+        opacity: 0;
+        transition:
+          transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+          opacity 0.22s ease;
+        box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.35);
+      }
+
+      .modal-overlay.open .modal {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      .modal-thumb {
+        aspect-ratio: 16 / 8;
+        position: relative;
+        overflow: hidden;
+        background-color: #0e0f13;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: var(--space-4);
+        right: var(--space-4);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition:
+          background 0.15s ease,
+          transform 0.15s ease;
+      }
+      .modal-close:hover {
+        background: #fff;
+        transform: scale(1.06);
+      }
+      .modal-close svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .modal-body {
+        padding: var(--space-7);
+      }
+
+      .modal-body h2 {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 var(--space-3);
+        letter-spacing: -0.01em;
+      }
+
+      .modal-body p {
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        margin: 0 0 var(--space-5);
+      }
+
+      .modal-tags {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        margin-bottom: var(--space-6);
+      }
+
+      .modal-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        background: var(--text-primary);
+        padding: 10px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background 0.15s ease;
+      }
+      .modal-cta:hover {
+        background: #000;
+      }
+      .modal-cta svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      /* ---------------- Responsive ---------------- */
+
+      /* Large desktop: roomier grid */
+      @media (min-width: 1400px) {
+        .main {
+          padding: var(--space-9) 64px;
+        }
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Tablet */
+      @media (max-width: 900px) {
+        :root {
+          --sidebar-w: 260px;
+        }
+        .main {
+          padding: var(--space-7) var(--space-6);
+        }
+        .grid {
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: var(--space-5);
+        }
+      }
+
+      /* Mobile: stack sidebar above content */
+      @media (max-width: 680px) {
+        .layout {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: auto;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+          padding: var(--space-6) var(--space-5) var(--space-5);
+        }
+
+        .avatar {
+          width: 72px;
+          height: 72px;
+          margin-bottom: var(--space-4);
+        }
+        .name {
+          font-size: 21px;
+        }
+        .bio {
+          max-width: none;
+          margin-bottom: var(--space-5);
+        }
+        .links {
+          margin-bottom: 0;
+        }
+        .divider {
+          margin: var(--space-5) 0 var(--space-4);
+        }
+
+        .main {
+          padding: var(--space-6) var(--space-5);
+        }
+        .main-header {
+          margin-bottom: var(--space-5);
+        }
+        .grid {
+          grid-template-columns: 1fr;
+          gap: var(--space-4);
+        }
+
+        .card:hover {
+          transform: translateY(-2px);
+        }
+
+        .modal-body {
+          padding: var(--space-5);
+        }
+        .modal-body h2 {
+          font-size: 19px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .sidebar {
+          padding: var(--space-5) var(--space-4) var(--space-4);
+        }
+        .main {
+          padding: var(--space-5) var(--space-4);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="avatar">
+          <img src="/assets/images/avatar.webp" />
+        </div>
+
+        <h1 class="name">James Geiss</h1>
+        <p class="role">Software Engineer</p>
+
+        <p class="bio">
+          I build random things I get interested in. Interested in low-level
+          software, embedded systems, compilers, networking engineering, highly
+          constrained environments, and everything that isn't frontend work
+          (which I can still do).
+        </p>
+
+        <div class="links">
+          {% for link in site.data.links %}
+          <a class="link-row" href="{{ link.href }}">
+            {% if link contains "icon" %}
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ link.icon }}/{{ link.icon }}-original.svg"
+            />
+            {% else %}
+            <img
+              src="https://unpkg.com/lucide-static@latest/icons/paperclip.svg"
+            />
+            {% endif %} {{ link.label }}
+          </a>
+          {% endfor %}
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+        <div class="main-inner">
+          <div class="main-header">
+            <h1>Projects</h1>
+          </div>
+
+          <div class="grid" id="grid"></div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="modal-thumb" id="modalThumb">
+          <button class="modal-close" id="modalClose" aria-label="Close">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+            >
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div class="modal-tags" id="modalTags"></div>
+          <a
+            class="modal-cta"
+            href="#"
+            id="modalCta"
+            target="_blank"
+            rel="noopener"
+          >
+            View repository
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+            >
+              <path d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        // Data is emitted server-side from _data/projects/*.yml — one yml file
+        // per repo, named after its slug on github.com/Tetrago.
+        const projects = [
+          {% assign sorted_projects = site.data.projects | sort %}
+          {% for entry in sorted_projects %}
+            {% assign slug = entry[0] %}
+            {% assign p = entry[1] %}
+
+            {% comment %} link: explicit field, else the GitHub repo {% endcomment %}
+            {% if p.link %}
+              {% assign project_link = p.link %}
+            {% else %}
+              {% assign project_link = "https://github.com/Tetrago/" | append: slug %}
+            {% endif %}
+
+            {% comment %} image: assets/images/[slug].webp if present, else GitHub's repo embed image {% endcomment %}
+            {% assign image_path = "/assets/images/" | append: slug | append: ".webp" %}
+            {% assign image_file = site.static_files | where: "path", image_path | first %}
+            {% if image_file %}
+              {% assign project_image = image_path %}
+            {% else %}
+              {% assign project_image = "https://opengraph.githubassets.com/1/Tetrago/" | append: slug %}
+            {% endif %}
+
+            {
+              title: {{ p.name | jsonify }},
+              desc: {{ p.text | jsonify }},
+              link: {{ project_link | jsonify }},
+              image: {{ project_image | jsonify }},
+              tags: {{ p.tags | jsonify }}
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ];
+
+        // Deterministic color per known language/tag; anything unrecognized
+        // falls back to a neutral style so new tags never break rendering.
+        const TAG_COLORS = {
+          go: ["var(--tag-go-bg)", "var(--tag-go-text)"],
+          typescript: ["var(--tag-ts-bg)", "var(--tag-ts-text)"],
+          javascript: ["var(--tag-ts-bg)", "var(--tag-ts-text)"],
+          react: ["var(--tag-react-bg)", "var(--tag-react-text)"],
+          python: ["var(--tag-python-bg)", "var(--tag-python-text)"],
+          rust: ["var(--tag-rust-bg)", "var(--tag-rust-text)"],
+          shell: ["var(--tag-shell-bg)", "var(--tag-shell-text)"],
+          bash: ["var(--tag-shell-bg)", "var(--tag-shell-text)"],
+          terraform: ["var(--tag-shell-bg)", "var(--tag-shell-text)"],
+          c: ["var(--tag-cpp-bg)", "var(--tag-cpp-text)"],
+          cpp: ["var(--tag-cpp-bg)", "var(--tag-cpp-text)"],
+          html: ["var(--tag-web-bg)", "var(--tag-web-text)"],
+          css: ["var(--tag-web-bg)", "var(--tag-web-text)"],
+        };
+        const DEFAULT_TAG_COLOR = ["var(--tag-shell-bg)", "var(--tag-shell-text)"];
+
+        function tagColor(tag) {
+          const key = tag.toLowerCase().replace(/[^a-z0-9]/g, "");
+          return TAG_COLORS[key] || DEFAULT_TAG_COLOR;
+        }
+
+        function tagHtml(tag) {
+          const [bg, text] = tagColor(tag);
+          return `<span class="tag" style="background:${bg};color:${text}">${tag}</span>`;
+        }
+
+        const grid = document.getElementById("grid");
+
+        projects.forEach((p, i) => {
+          const card = document.createElement("button");
+          card.className = "card";
+          card.setAttribute("type", "button");
+          card.setAttribute("aria-haspopup", "dialog");
+          card.dataset.index = i;
+
+          const tagsHtml = p.tags.map(tagHtml).join("");
+
+          card.innerHTML = `
+        <div class="thumb" style="background-image:url('${p.image}')"></div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <h3>${p.title}</h3>
+            <span class="open-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </span>
+          </div>
+          <p>${p.desc.split(".")[0]}.</p>
+          <div class="tags">${tagsHtml}</div>
+        </div>
+      `;
+
+          card.addEventListener("click", () => openModal(i));
+          grid.appendChild(card);
+        });
+
+        const overlay = document.getElementById("modalOverlay");
+        const modalThumb = document.getElementById("modalThumb");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const modalTags = document.getElementById("modalTags");
+        const modalCta = document.getElementById("modalCta");
+        const modalClose = document.getElementById("modalClose");
+
+        let lastFocused = null;
+
+        function openModal(i) {
+          const p = projects[i];
+          lastFocused = document.activeElement;
+
+          modalThumb.style.backgroundImage = `url('${p.image}')`;
+
+          modalTitle.textContent = p.title;
+          modalDesc.textContent = p.desc;
+          modalTags.innerHTML = p.tags.map(tagHtml).join("");
+          modalCta.href = p.link;
+
+          overlay.classList.add("open");
+          document.body.style.overflow = "hidden";
+          modalClose.focus();
+        }
+
+        function closeModal() {
+          overlay.classList.remove("open");
+          document.body.style.overflow = "";
+          if (lastFocused) lastFocused.focus();
+        }
+
+        modalClose.addEventListener("click", closeModal);
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && overlay.classList.contains("open"))
+            closeModal();
+        });
+    </script>
+  </body>
+</html>

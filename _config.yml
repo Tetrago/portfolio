@@ -1,0 +1,24 @@
+title: James Geiss
+email: james@geiss.dev
+description: >- # this means to ignore newlines until "baseurl:"
+  I build random things I get interested in from low-level software
+  to networking and software architure.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://james.geiss.dev" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: tetrago
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+plugins:
+  - jekyll-minifier
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

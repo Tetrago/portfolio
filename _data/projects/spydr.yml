@@ -1,0 +1,7 @@
+name: Real-time Ray Marching
+text: >-
+  An experiment in WebGPU compute shaders and ray marching graphics techniques
+  to render 3D fractals in real-time.
+tags:
+  - Rust
+  - WGSL

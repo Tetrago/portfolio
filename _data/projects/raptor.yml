@@ -1,0 +1,6 @@
+name: Macro-based Language Parser
+text: >-
+  A quick experiment in language tokenizing and parsing based around a Rust
+  macro based DSL built entirely in-language.
+tags:
+  - Rust

@@ -1,0 +1,8 @@
+name: TTF Parser and Glyph Renderer
+text: >-
+  Side project delving into the TTF binary file format that is used in systems
+  today to store fonts. Built an OpenGL pipeline to render glyphs read from
+  font files using the tesselation engine to make renders inifitely zoomable.
+tags:
+  - Rust
+  - OpenGL

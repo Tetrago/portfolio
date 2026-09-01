@@ -1,0 +1,7 @@
+name: Vulkan Bindings & Builders
+text: >-
+  A project aimed at linking and wrapping the low-level Vulkan C API in Rust
+  and building a safe and powerful abstraction around its components.
+tags:
+  - Rust
+  - Vulkan

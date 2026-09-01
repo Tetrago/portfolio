@@ -1,0 +1,11 @@
+name: WebSocket Chat Application
+text: >-
+  Motmot is a live chat application built for a course at the University of
+  Florida, it makes use of a Go backend and Svelte frontend talking over a
+  WebSocket to handle group-based chatting with user authentication, all running
+  on top of Docker.
+tags:
+  - Go
+  - Svelte
+  - PostgreSQL
+  - Docker

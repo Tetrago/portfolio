@@ -1,0 +1,7 @@
+name: GTK4 System Settings Utility
+text: >-
+  A quick and minimal GTK4 application I created for my Linux environment as an
+  excuse to get familiar with reactive UI development in the GTK ecosystem.
+tags:
+  - Rust
+  - Blueprint

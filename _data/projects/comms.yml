@@ -1,0 +1,10 @@
+name: EMANE container utility wrapper
+text: >-
+  A utility virtual network emulation container powered by EMANE designed to
+  simulate configurable networking conditions for protocol testing and
+  benchmarking.
+tags:
+  - Docker
+  - Podman
+  - Python
+  - EMANE

@@ -1,0 +1,6 @@
+name: OS From Scratch
+text: >-
+  A delve into BIOS and x86 booting with the goal of making a PDF guide, available in the releases.
+tags:
+  - ASM
+  - LaTeX

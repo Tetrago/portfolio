@@ -1,0 +1,6 @@
+name: 3D Planet Generation Web App
+link: https://tetrago.github.io/galaxy
+text: >-
+  A simple mesh builder for 3D planetoids rendering entirely in-browser.
+tags:
+  - JavaScript
