@@ -1,7 +1,7 @@
 name: Rubik's Cube Solver and Visualizer
 text: >-
-  A Java & Processing.org mini-project designing an asynchronous Rubik's cube
-  visualizer and animated solver.
+  A Java mini-project designing an asynchronous Rubik's cube visualizer and animated
+  solver.
 tags:
   - Java
   - Maven
